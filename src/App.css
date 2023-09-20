@@ -1,0 +1,102 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(121, 195, 245);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.clock {
+  position: absolute;
+  border-radius: 50%;
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  background: url(./assets/clock.png) rgb(255, 224, 124);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:root {
+  --pos: 0;
+}
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(var(--pos) * 1deg));
+  transform-origin: bottom;
+}
+
+.clock::after {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  background-color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.second {
+  width: 4px;
+  height: 31%;
+  background-color: rgb(255, 0, 0);
+  border-radius: 40px 40px 0 0;
+}
+.minute {
+  width: 8px;
+  height: 27%;
+  background-color: rgb(47, 187, 252);
+  border-radius: 40px 40px 0 0;
+}
+.hour {
+  width: 15px;
+  height: 21%;
+  background-color: rgb(62, 145, 23);
+  border-radius: 40px 40px 0 0;
+}
+
+.startbtn {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  font-size: 36px;
+  padding: 12px 36px;
+  background-color: rgb(0, 88, 0);
+  color: rgb(248, 163, 4);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.stopbtn {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  font-size: 36px;
+  padding: 12px 36px;
+  background-color: rgb(228, 1, 1);
+  color: rgb(137, 250, 137);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button {
+  transition: 0.3s all ease-in;
+}
+button:hover {
+  transform: scale(1.1);
+}
